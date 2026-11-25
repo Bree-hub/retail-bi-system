@@ -1,6 +1,6 @@
-# Joskimu BI System
+# Retail BI System
 
-**An end-to-end business intelligence system for Joskimu, my family's meat distribution business in Nairobi: from a normalized operational database to SSAS cubes and an Excel dashboard.**
+**An end-to-end business intelligence system for a retail and wholesale meat distributor in Nairobi: from a normalized operational database to SSAS cubes and an Excel dashboard. The case is Joskimu, my family's business.**
 
 *Tools: Microsoft Access · SQL Server 2025 · SSAS (Multidimensional) · Excel PivotTables/PivotCharts*
 
