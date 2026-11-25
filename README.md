@@ -32,7 +32,7 @@ An 11-table relational design in third normal form, with referential integrity e
 ### 2. ETL: Access → SQL Server
 Dimension and fact tables were shaped with Make Table queries in Access, then loaded into a SQL Server warehouse with the SQL Server Import and Export Wizard. Key transformations:
 - **Flattened the ISA hierarchy.** The three product subtypes and `SUPPLIER` were denormalized into one `DIM_Product`. This needed LEFT JOINs: INNER JOINs returned nothing, because each product belongs to exactly one subtype.
-- **Built `DIM_Date` from order dates**, with an integer `YYYYMMDD` key the fact tables can derive directly.
+- **Built `DIM_Date` from order dates**, with a `YYYYMMDD` key the fact tables can derive directly from the order date.
 - **Rolled order lines up to order level** for the fulfillment fact table and calculated `PaymentGap = OrderRevenue − PaymentAmount` during the load.
 
 ### 3. Two star schemas, two grains
@@ -81,14 +81,14 @@ Six sheets connected live to the cubes: Executive Summary, Revenue Performance, 
 ## View it
 
 - **No install:** [project report (PDF)](docs/report.pdf) · [presentation (PDF)](docs/presentation.pdf) · dashboard screenshots in [`05-dashboard/`](05-dashboard/)
-- **To rebuild:** run `03-warehouse/star-schema.sql` on SQL Server, open the project in `04-cubes/` in Visual Studio with the Analysis Services extension, point the data source at your server, and process both cubes
+- **To explore the design:** `03-warehouse/star-schema.sql` has the warehouse tables. Keys and relationships are defined in the SSAS data source views (the `.dsv` files in `04-cubes/`); open `04-cubes/BIProject.slnx` in Visual Studio with the Analysis Services extension to see them
 
 ## Repo layout
 
 ```
 ├── docs/                 # report and presentation (PDF)
 ├── figures/              # operational ERD and star schema diagrams
-├── 03-warehouse/         # star schema DDL
+├── 03-warehouse/         # warehouse table definitions (SQL Server)
 ├── 04-cubes/             # SSAS multidimensional project
 └── 05-dashboard/         # dashboard screenshots
 ```
