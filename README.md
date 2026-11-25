@@ -4,7 +4,7 @@
 
 *Tools: Microsoft Access · SQL Server 2025 · SSAS (Multidimensional) · Excel PivotTables/PivotCharts*
 
-![Executive summary dashboard](05-dashboard/executive-summary.png)
+![Executive summary dashboard](03-dashboard/executive-summary.png)
 
 ## The question
 
@@ -57,9 +57,9 @@ Six sheets connected live to the cubes: Executive Summary, Revenue Performance, 
 
 | | |
 |---|---|
-| ![Revenue performance](05-dashboard/revenue-performance.png) | ![Sales depth](05-dashboard/sales-depth.png) |
+| ![Revenue performance](03-dashboard/revenue-performance.png) | ![Sales depth](03-dashboard/sales-depth.png) |
 | **Revenue performance:** revenue by customer type, product type and month | **Sales depth:** top products and employee contribution |
-| ![Fulfillment analysis](05-dashboard/fulfillment.png) | ![Payment behavior](05-dashboard/payment-behavior.png) |
+| ![Fulfillment analysis](03-dashboard/fulfillment.png) | ![Payment behavior](03-dashboard/payment-behavior.png) |
 | **Fulfillment ("Worth it?"):** revenue, unpaid balance and delivery mileage per customer, with mileage on a second axis | **Payment behavior:** what was collected, by payment method |
 
 ## Key result
@@ -80,17 +80,17 @@ Six sheets connected live to the cubes: Executive Summary, Revenue Performance, 
 
 ## View it
 
-- **No install:** [project report (PDF)](docs/report.pdf) · [presentation (PDF)](docs/presentation.pdf) · dashboard screenshots in [`05-dashboard/`](05-dashboard/)
-- **To explore the design:** `03-warehouse/star-schema.sql` has the warehouse tables. Keys and relationships are defined in the SSAS data source views (the `.dsv` files in `04-cubes/`); open `04-cubes/BIProject.slnx` in Visual Studio with the Analysis Services extension to see them
+- **No install:** [project report (PDF)](docs/report.pdf) · [presentation (PDF)](docs/presentation.pdf) · dashboard screenshots in [`03-dashboard/`](03-dashboard/)
+- **To explore the design:** `01-warehouse/star-schema.sql` has the warehouse tables. Keys and relationships are defined in the SSAS data source views (the `.dsv` files in `02-cubes/`); open `02-cubes/BIProject.slnx` in Visual Studio with the Analysis Services extension to see them
 
 ## Repo layout
 
 ```
 ├── docs/                 # report and presentation (PDF)
 ├── figures/              # operational ERD and star schema diagrams
-├── 03-warehouse/         # warehouse table definitions (SQL Server)
-├── 04-cubes/             # SSAS multidimensional project
-└── 05-dashboard/         # dashboard screenshots
+├── 01-warehouse/         # warehouse table definitions (SQL Server)
+├── 02-cubes/             # SSAS multidimensional project
+└── 03-dashboard/         # dashboard screenshots
 ```
 
 ---
