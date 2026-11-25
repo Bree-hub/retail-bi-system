@@ -1,0 +1,15 @@
+# Raw business data and database files
+*.accdb
+*.mdb
+*.bak
+*.mdf
+*.ldf
+*.csv
+data/
+
+# Visual Studio build junk
+bin/
+obj/
+.vs/
+*.user
+*.suo
