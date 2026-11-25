@@ -4,8 +4,7 @@
 
 *Tools: Microsoft Access · SQL Server 2025 · SSAS (Multidimensional) · Excel PivotTables/PivotCharts*
 
-![Pipeline](figures/pipeline.png)
-<!-- TODO: replace with a dashboard screenshot or a simple pipeline diagram -->
+![Executive summary dashboard](05-dashboard/executive-summary.png)
 
 ## The question
 
@@ -56,6 +55,13 @@ Built in Visual Studio as an Analysis Services Multidimensional project, with a 
 ### 5. Excel dashboard
 Six sheets connected live to the cubes: Executive Summary, Revenue Performance, Sales Depth, Fulfillment Analysis, Payment Behavior, and Raw Data. I designed it for a reader who won't touch a filter, so every sheet has a pre-filtered view and a one-line takeaway.
 
+| | |
+|---|---|
+| ![Revenue performance](05-dashboard/revenue-performance.png) | ![Sales depth](05-dashboard/sales-depth.png) |
+| **Revenue performance:** revenue by customer type, product type and month | **Sales depth:** top products and employee contribution |
+| ![Fulfillment analysis](05-dashboard/fulfillment.png) | ![Payment behavior](05-dashboard/payment-behavior.png) |
+| **Fulfillment ("Worth it?"):** revenue, unpaid balance and delivery mileage per customer, with mileage on a second axis | **Payment behavior:** what was collected, by payment method |
+
 ## Key result
 
 > **The system works end to end, and even on sample data it surfaced the two risks it was built to find: revenue concentration and a payment collection gap.**
@@ -74,16 +80,14 @@ Six sheets connected live to the cubes: Executive Summary, Revenue Performance, 
 
 ## View it
 
-- **No install:** [project report (PDF)](docs/report.pdf) · [presentation (PDF)](docs/presentation.pdf) · dashboard screenshots in `figures/`
-- **To rebuild:** run `01-operational-db/schema.sql` and `03-warehouse/star-schema.sql` on SQL Server, open `04-cubes/` in Visual Studio with the Analysis Services extension, point the data source at your server, and process
+- **No install:** [project report (PDF)](docs/report.pdf) · [presentation (PDF)](docs/presentation.pdf) · dashboard screenshots in [`05-dashboard/`](05-dashboard/)
+- **To rebuild:** run `03-warehouse/star-schema.sql` on SQL Server, open the project in `04-cubes/` in Visual Studio with the Analysis Services extension, point the data source at your server, and process both cubes
 
 ## Repo layout
 
 ```
 ├── docs/                 # report and presentation (PDF)
-├── figures/              # ERD, star schemas, dashboard screenshots
-├── 01-operational-db/    # 3NF schema script + table definitions
-├── 02-etl/               # ETL notes and transformation queries
+├── figures/              # operational ERD and star schema diagrams
 ├── 03-warehouse/         # star schema DDL
 ├── 04-cubes/             # SSAS multidimensional project
 └── 05-dashboard/         # dashboard screenshots
